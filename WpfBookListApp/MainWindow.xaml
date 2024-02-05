@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfBookListApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBookListApp"
+        mc:Ignorable="d"
+         Title="Lista książek" Height="450" Width="600"
+        Closing="Window_Closing">
+    <Grid>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Dodaj książkę" Click="AddBookMenuItem_Click"/>
+                <MenuItem Header="Edytuj książkę" Click="EditBookMenuItem_Click"/>
+                <MenuItem Header="Usuń książkę" Click="DeleteBookMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="Wyjście" Click="ExitMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="BookListView" AutoGenerateColumns="False" Margin="10,26,10,10" CanUserAddRows="False"
+                  LoadingRow="BookListView_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tytuł" Binding="{Binding Title}" Width="150"/>
+                <DataGridTextColumn Header="Autor" Binding="{Binding Author}" Width="150"/>
+                <DataGridTextColumn Header="Klasa" Binding="{Binding Class}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
